@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <style>
+      body {
+        width: 400px;
+        height: 450px;
+        font-family: "Inter";
+      }
+
+      .caption-container {
+        width: 375px;
+        height: 400px;
+      }
+
+      .container-title {
+        font-size: 18px;
+        padding-bottom: 0px !important;
+      }
+
+      .container-header {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        box-shadow: 0 6px 6px -6px rgba(0,0,0,.2);
+      }
+
+      .container-footer {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .caption-block.speaker {
+        padding: 5px;
+      }
+
+      .caption-block.caption {
+        padding: 5px;
+      }
+
+
+      .caption:hover {
+        background-color:  rgb(107, 219, 126) 17%;
+        cursor: pointer;
+      }
+
+      .highlighted {
+        background-color: rgb(58, 153, 45);
+      }
+
+      .unhighlighted {
+        background-color: rgb(58, 153, 45);
+      }
+
+      .caption-block {
+        padding: 10px;
+      }
+
+      .auto-save {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .auto-save:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      #activate-pro:hover {
+        text-decoration: none;
+      }
+
+      .no-decoration {
+        color: inherit;
+      }
+
+      .no-decoration:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .custom-control-input:checked~.custom-control-label::before{
+        background-color:#5040F2;
+        border-color: #5040F2;
+      }
+
+      .captionsaver-brand {
+        font-weight: 700;
+        color: #303030;
+      }
+
+      .switch-container {
+        font-size: 15px;
+      }
+
+      .dropdown-item:active {
+        background-color: #5040F2;
+      }
+    </style>
+  </head>
+  <body>
+
+      <nav class="navbar navbar-light bg-white border-bottom shadow-sm">
+        <span class="navbar-brand captionsaver-brand" href="#">
+          <img src="images/captionsaver_logo_only.png" class="logo">
+        </span>
+        <p style="text-align:center">MeetMate</p> 
+        <div class="btn-group float-right">
+          <button type="button" class="btn btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-three-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+            </svg>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button id="buy-pro" class="dropdown-item" type="button">
+              
+              <span class="pr-2"></span>
+              <!-- Buy CaptionSaver Pro -->
+            </button>
+            <button id="activate-pro-menu-item" class="dropdown-item" type="button">
+              
+              <span class="pr-2"></span>
+              <!-- Activate Pro -->
+            </button>
+
+            <div id="buy-activate-divider" class="dropdown-divider"></div>
+
+            <button id="view-transcripts" class="dropdown-item" type="button">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5v-9zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V7z"/>
+              </svg>
+              <span class="pr-2"></span>
+              <a id="google-drive-folder" class="no-decoration" href="#" target="_blank">View Transcripts</a>
+            </button>
+
+            <button id="save-to-drive" class="dropdown-item" type="button">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+                <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+              <span class="pr-2"></span>
+              <!-- Save to Drive -->
+            </button>
+
+            <button id="download-txt" class="dropdown-item" type="button">
+              
+              Download .TXT
+            </button>
+            <button id="alert" class="dropdown-item" type="button">  Create Alert</button>
+            
+            
+
+            
+
+          </div>
+        </div>
+
+      </nav>
+
+    <div class="container-sm pt-3">
+
+      <div id="caption-container" class="caption-container overflow-auto">
+        <div id="intro" hidden>
+          <p><b>Welcome to CaptionSaver!</b></p>
+          <p>Before joining a meeting, make sure you connect Google Drive and Turn on "Auto-Save to Drive" <a href="https://captionsaver.com/?utm_source=autosave#pricing" target="_blank">(Pro only)</a>. <i>Always save or download your transcript before closing the meeting tab!</i></p>
+
+          <div id="pro-cta">
+            <p class="pt-2"><b>Go Pro!</b></p>
+            <p class="pt-1"><a class="btn btn-sm btn-brand" href="https://gumroad.com/l/captionsaver" target="_blank">Buy now</a></p>
+            <p>Get access to these features:</p>
+            <ul>
+              <li>Auto-Save to Drive</li>
+              <li>Timestamps</li>
+              <li>Highlighting</li>
+              <li>All future updates!</li>
+            </ul>
+
+          </div>
+
+          <p class="pt-3"><b>Something not working?</b></p>
+          <p>So sorry about that :( Sometimes Google Meet pushes changes that causes the extension to break. Or it might be code I wrote that's causing issues.</p>
+
+          <p>Either way, <i>please let me know</i> at <b>tom@captionsaver.com</b> and I'll get a fix out as fast as I can!</p>
+
+          <p>Thanks for understanding and for your ongoing support!</p>
+
+
+          <p><a href="https://twitter.com/tomzaragoza" target="_blank">@tomzaragoza</a></p>
+        </div>
+
+        <div id="meet-placeholder" hidden>
+          <p><b></b></p>
+        </div>
+      </div>
+
+      <div class="container-footer pt-3">
+
+      <div class="row">
+        <div id="auto-save-container" class="col-md-12 switch-container">
+
+          <div class="custom-control custom-switch float-left">
+            <input type="checkbox" class="custom-control-input" id="auto-save-switch" disabled hidden>
+            <label class="custom-control-label" for="auto-save-switch">
+              <a href="https://captionsaver.com/?utm_source=autosave#pricing" target="_blank" class="auto-save" id="auto-save-link">Auto-Save to Drive</a>
+            </label>
+          </div>
+
+          <div class="float-right">
+            <a id="activate-pro" class="btn btn-sm btn-brand" target="_blank" hidden>Activate Pro</a>
+          </div>
+        </div>
+
+        <div id="connect-drive-container" class="col-md-12" hidden>
+          <a id="connect-drive-button" class="btn btn-sm btn-brand">Connect Google Drive</a>
+        </div>
+      </div>
+
+
+      <div class="row pt-1 auto-start-row">
+        <div id="auto-start-container" class="col-md-12 switch-container">
+
+          <div class="custom-control custom-switch float-left">
+            <input type="checkbox" class="custom-control-input" id="auto-start-switch">
+            <label class="custom-control-label" for="auto-start-switch">
+              Auto-Start Captions
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+
+    <script src="js/popup.js"></script>
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+
+</html>

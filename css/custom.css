@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.btn-brand {
+	background-color: #5040F2;
+	color: #fff;
+}
+
+.btn-brand:hover {
+	background-color: #3a28f0;
+	color: #fff;	
+}
+
+.logo {
+	width: 25%;
+}
+
+.heavy {
+	font-weight: 700;
+}

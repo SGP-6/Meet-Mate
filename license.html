@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-options.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <style>
+      .title {
+        font-size: 18px;
+        padding-bottom: 0px !important;
+      }
+
+      .error {
+        color: #ff4d4d;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal title">
+    <img src="images/captionsaver_logo_only.png" class="logo">
+  </h5>
+</div>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 heavy">Activate Pro</h1>
+  <p class="lead pt-4 pb-4">Enter your license key below to access all CaptionSaver Pro features!</p>
+</div>
+
+<div class="container">
+  <div class="col-md-8 mx-auto">
+
+    <div class="card-deck mb-3 text-center" id="license-key-card">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="license-key" aria-label="License key..." placeholder="License key...">
+          </div>
+
+          <p id="response" class="pt-3 error"></p>
+
+          <button type="button" id="activate" class="btn btn-lg btn-block btn-brand">Activate</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-deck mb-3 text-center" id="success" hidden>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p>Success! You now have access to all CaptionSaver Pro features!</p>
+
+          <p><b>To use the Pro features, please make sure you re-join any meeting you'd like the Pro features to work in!</b></p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+    <p class="text-center" id="license-key-cta">Don't have a license key yet? Get one <a href="options.html">here!</a></p>
+  </div>
+</div>
+
+    <script src="js/license.js"></script>
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "js/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "128": "images/captionsaver_128.png",
+         "16": "images/captionsaver_16.png",
+         "32": "images/captionsaver_32.png",
+         "48": "images/captionsaver_48.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "js": [ "js/main.js" ],
+      "matches": [ "*://meet.google.com/*-*-*", "*://meet.google.com/new" ],
+      "run_at": "document_idle"
+   } ],
+   "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://www.googleapis.com; object-src 'self'",
+   "description": "Save live caption transcripts from Google Meet",
+   "icons": {
+      "128": "images/captionsaver_128.png",
+      "16": "images/captionsaver_16.png",
+      "32": "images/captionsaver_32.png",
+      "48": "images/captionsaver_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq9uawzkqNMJVjFWBNN227u7+yWObfUQq2GrioESe4f//ZeU/MvNEwGWu6EQyY4lpH/hHZK7houKAu3trt2o1PrgqpdjY1Cyqw+k4paaAEWcHwDofI5qtlDUfWtbqF9wBRWGM8tuEMc84y8eGI5pvkuHPYvOQgT1bPZQYn+IinORJpuaME1GygHWBMPgwwIOZEWnFrcBEUVTeRUNAz/5BgB4JfswpgumUHc8wl/Nvly+tF1CFLxx4ppEs4OPD/uIyUYJasW6ocOrNN0yXnL3QnXN+m1wrAec+ySgNl1khh5cehbf7jkj90nRBOetjK01QtOUDABv/ooIuLSps4NJgcQIDAQAB",
+   "manifest_version": 2,
+   "name": "Meet Mate",
+   "oauth2": {
+      "client_id": "1047178326222-heuqqt41bu16t8b3tt28l4vjv8oomdd3.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/drive.file" ]
+   },
+   "options_page": "options.html",
+   "permissions": [ "alarms", "tabs", "storage", "identity", "https://www.googleapis.com/*", "https://licensekit.io/*", "activeTab" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.1.0"
+}
